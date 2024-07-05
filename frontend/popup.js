@@ -6,7 +6,7 @@ chrome.runtime.sendMessage({ message: "getSelectedText" }, function (response) {
       return;
     } 
     var simplifiedText = "";
-    fetch("http://localhost:5000/simplify", {
+    fetch("https://worduno-backend.onrender.com/simplify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

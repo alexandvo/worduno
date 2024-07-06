@@ -4,8 +4,20 @@ from flask_cors import CORS
 from helpers.response_generator import getResponse
 from dotenv import load_dotenv
 import os
+from apscheduler.schedulers.background import BackgroundScheduler
+import atexit
 
 load_dotenv()
+
+def my_scheduled_task():
+    print("Refreshing Inactive Cooldown")
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=my_scheduled_task, trigger="interval", minutes=5)
+scheduler.start()
+
+# Shut down the scheduler when exiting the app
+atexit.register(lambda: scheduler.shutdown())
 
 api_key = os.getenv('OPEN_AI_API_KEY')
 

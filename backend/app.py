@@ -17,7 +17,7 @@ def self_ping():
         print(f"Self-ping failed: {e}")
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=self_ping, trigger="interval", minutes=0.1)
+scheduler.add_job(func=self_ping, trigger="interval", minutes=5)
 scheduler.start()
 
 load_dotenv()

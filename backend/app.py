@@ -27,7 +27,7 @@ api_key = os.getenv('OPEN_AI_API_KEY')
 client = OpenAI(api_key=api_key)
 
 app = Flask(__name__)
-CORS(app, resources={r"/simplify": {"origins": "chrome-extension://bhoglaohnjphilfenndhbhekclfijlhm"}})
+CORS(app, resources={r"/simplify": {"origins": "chrome-extension://clkioiobgdmiefidhflfgocnflmdaefd"}})
 
 @app.route('/simplify', methods=['POST'])
 def getSimplifiedText():

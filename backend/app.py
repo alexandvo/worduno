@@ -8,17 +8,18 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import requests
 import atexit
 
-def self_ping():
-    try:
-        # Replace 'your-app-url' with the actual URL of your Render app
-        requests.get("https://worduno-backend.onrender.com/")
-        print("Self-ping successful")
-    except Exception as e:
-        print(f"Self-ping failed: {e}")
+# # self pinger
+# def self_ping():
+#     try:
+#         # Replace 'your-app-url' with the actual URL of your Render app
+#         requests.get("https://worduno-backend.onrender.com/")
+#         print("Self-ping successful")
+#     except Exception as e:
+#         print(f"Self-ping failed: {e}")
 
-scheduler = BackgroundScheduler()
-scheduler.add_job(func=self_ping, trigger="interval", minutes=5)
-scheduler.start()
+# scheduler = BackgroundScheduler()
+# scheduler.add_job(func=self_ping, trigger="interval", minutes=5)
+# scheduler.start()
 
 load_dotenv()
 
@@ -37,9 +38,10 @@ def getSimplifiedText():
             res = getResponse(client, message)
             return jsonify(res)
 
-@app.route('/')
-def refresh():
-    return "Refreshing Inactivity."
+# refresher route
+# @app.route('/')
+# def refresh():
+#     return "Refreshing Inactivity."
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=os.getenv('PORT'))
